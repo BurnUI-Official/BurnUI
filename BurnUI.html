@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BurnUI</title>
+</head>
+<body id="bgStyle" style="background-color: white">
+
+<div id="tos" style="display: block;">
+    
+<h1>Tos</h1>
+<p>People under 8 <b>must</b> be on a junior account or have parental controls.</p>
+<p>If there are any people that <i>need</i> to be reported, please let us know!</p>
+
+<button onclick="changeScene()">Okay!</button> 
+
+
+<script>
+    var scene = "tos"; 
+function changeScene() {
+    var tosS = document.getElementById("tos");
+    var bgStyle = document.getElementById("bgStyle");
+    var homePage = document.getElementById("home");
+    var mailPage = document.getElementById("mail");
+
+
+    if (scene === "tos") {
+        scene = "home"; // Update the state
+        tosS.style.display = "none";
+        bgStyle.style.backgroundColor = "orange";
+        homePage.style.display = "block";
+        mailPage.style.display = "none";
+    } 
+    else if (scene === "home") {
+        scene = "mail"; // Update to next state
+        tosS.style.display = "none";
+        bgStyle.style.backgroundColor = "white"; // Changed bgStyle casing here
+        homePage.style.display = "none";
+        mailPage.style.display = "block";
+    }
+    else if (scene === "mail") {
+                scene = "home"; // Update the state
+        tosS.style.display = "none";
+        bgStyle.style.backgroundColor = "orange";
+        homePage.style.display = "block";
+        mailPage.style.display = "none";
+    }
+}
+    </script>
+    
+</div>
+
+<div id="home" style="display: none;">
+<div id="homeHeading">
+    <h1 style="background-color: red; color: yellow; border: 2px outset yellow">BurnUI — Home <button style="background-color: red; color: white; border-radius: 2px; border: 2px outset yellow;" onclick="profile()" id="profileButton">Profile</button> 
+        
+    
+    <div id="profileOptions" style="display: none;">
+<hr>
+        
+<!-- Unique ID for the input -->
+<input type="text" value="Guest" id="username"> 
+
+<!-- Call a uniquely named function -->
+        <button onclick="checkUser()">Ok</button>
+
+<!-- Target element for the result -->
+
+
+<script>
+
+    
+    function checkUser() {
+        // Renamed variable to avoid confusion with function or ID
+    var userInput = document.getElementById("username")
+    
+    var buxDisplay = document.getElementById("burnBux")
+    
+
+        if (userInput.value === "Myles") {
+            buxDisplay.value = "BurnBux: 98000000+";
+            userInput.readOnly = true;
+        } else {
+            if(userInput.value === "Matthew") {
+                buxDisplay.value = "BurnBux: 98000000+";
+                userInput.readOnly = true;
+            }
+        
+        }
+    }
+</script>
+
+        
+        <br>
+        <a href="https://scratch.mit.edu/projects/editor"><button  style="background-color: red; color: white; border-radius: 2px; border: 2px outset yellow;">Create</button></a>
+        <br>
+        <button onclick="changeScene()" style="background-color: red; color: white; border-radius: 2px; border: 2px outset yellow;">Mail</button>
+        
+        <hr>
+        
+        <input type="text" id="burnBux" readonly style="background-color: red; color: yellow; border: 0px; font-size: 25px" value="BurnBux: 15">
+        
+<hr>
+
+    </div>
+    
+    </h1>
+
+    <script>
+
+        function profile() {
+
+            var profileOptions = document.getElementById("profileOptions");
+            var profileButton = document.getElementById("profileButton");
+
+            if(profileOptions.style.display === "none") {
+                profileOptions.style.display = "block";
+                profileButton.textContent = "Back";
+            } else {
+                profileOptions.style.display = "none";
+                profileButton.textContent = "Profile";
+            }
+            
+        }
+
+    </script>
+    
+</div>
+    
+    <div id="games" style="background-color: red; border: 5px outset yellow;">
+        
+        <h1 style="color: yellow;">BurnUI Originals</h1>
+        <hr>
+        
+        <a href="https://scratch.mit.edu/projects/1260099784/fullscreen"><img src="https://cdn2.scratch.mit.edu/get_image/project/1260099784_144x108.png" width="200" height="160" style="border: 8px outset black; border-style: solid"></a>
+        
+        <a href="https://scratch.mit.edu/projects/1197474488/fullscreen"><img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" width="200" height="160" style="border: 8px outset black; border-style: solid"></a>
+        
+        <a href="https://scratch.mit.edu/projects/1256714335/fullscreen"><img src="https://cdn2.scratch.mit.edu/get_image/project/1256714335_282x210.png" width="200" height="160" style="border: 8px outset black; border-style: solid"></a>
+        
+        
+    </div>
+    
+</div>
+    
+<div id="mail" style="display: none">
+    
+    <h1>Mail</h1>
+    
+    <div id="burnUImessage" style="background-color: gray; border: 5px outset black; border-style: solid">
+        
+        <img src="https://i.pinimg.com/originals/77/3e/05/773e05d759bfc198c857ed71edd475d3.gif" width="150px" height="35px">
+        
+        <p>Hello, it's us - BurnUI.</p>
+        
+        <br>
+        
+        <p>This is just a test that we are rolling out to accounts, to test the new mail feature - remember to report people who need reporting!</p>
+        
+        <br>
+        <p> - BurnUI</p>
+        
+                <img src="https://i.pinimg.com/originals/77/3e/05/773e05d759bfc198c857ed71edd475d3.gif" width="150px" height="35px">
+        
+        
+    </div>
+    
+    <br>
+    
+    <button onclick="changeScene()">Back</button>
+    
+</div>
