@@ -13,6 +13,24 @@
               border-style: solid;
               border-radius: 15px;
               
+              
+          }
+          
+      </style>
+      
+      <style>
+          
+          .buttonFill {
+              
+              background-color: red;
+              color: yellow;
+              border: 2px outset yellow;
+              border-style: solid;
+              border-radius: 15px;
+              font-size: 55px;
+              text-decoration: none;
+              width: 100%;
+              
           }
           
       </style>
@@ -41,12 +59,77 @@
               border: 2px outset yellow;
               border-style: solid;
               border-radius: 15px;
-              font-size: 50px;
+              font-size: 55px;
               text-decoration: none;
               
           }
           
       </style>
+      
+      <style>
+    /* Bold Mode: everything bold */
+    .bold-mode * {
+        font-weight: bold !important;
+    }
+
+    /* Regular Mode: everything normal EXCEPT headings */
+    .regular-mode * {
+        font-weight: normal !important;
+    }
+
+    /* Keep headings bold ALWAYS */
+    .regular-mode h1,
+    .regular-mode h2,
+    .regular-mode h3,
+    .regular-mode h4,
+    .regular-mode h5,
+    .regular-mode h6 {
+        font-weight: bold !important;
+    }
+</style>
+
+
+
+
+      <script>
+function darkMode() {
+    document.body.style.backgroundColor = "#111";
+    document.getElementById("title").style.backgroundColor = "#222";
+    document.getElementById("Top").style.backgroundColor = "#222";
+    document.getElementById("gap").style.backgroundColor = "#222";
+    document.getElementById("gap").style.borderColor = "#222";
+
+    document.querySelectorAll(".scene").forEach(scene => {
+        scene.style.backgroundColor = "#222";
+    });
+}
+
+function regularMode() {
+    document.body.style.backgroundColor = "orange";
+    document.getElementById("title").style.backgroundColor = "red";
+    document.getElementById("Top").style.backgroundColor = "red";
+    document.getElementById("gap").style.backgroundColor = "red";
+    document.getElementById("gap").style.borderColor = "red";
+
+    document.querySelectorAll(".scene").forEach(scene => {
+        scene.style.backgroundColor = "red";
+    });
+}
+
+</script>
+
+      <script>
+function boldText() {
+    document.body.classList.add("bold-mode");
+    document.body.classList.remove("regular-mode");
+}
+
+function regularText() {
+    document.body.classList.add("regular-mode");
+    document.body.classList.remove("bold-mode");
+}
+</script>
+
       
   </head>
   <body style="background-color: orange;">
@@ -62,22 +145,21 @@
         <div id="gap" style="border: 10px outset red; border-style: solid; border-radius: 15px;">
     <button onclick="showScene('homeScene')" class="button">Home</button>
     <button onclick="showScene('uploadScene')" class="button">Upload</button>
-    <button onclick="showScene('settingsScene')" class="button">Help?</button>
-    <button onclick="showScene('videosScene')" class="button">Video</button>
+    <button onclick="showScene('helpScene')" class="button">Help?</button>
         </div>
       </div>
 
       <br><br><br>
       
     <!-- SCENE 1 -->
-    <div id="homeScene" class="scene" style="display: block; background-color: red; border: 5px outset yellow; border-style: solid;">
+    <div id="homeScene" class="scene" style="display: none; background-color: red; border: 5px outset yellow; border-style: solid;">
         <h1 style="color: yellow;">Home</h1>
         
         <div style="display: flex;">
         <div id="Movie-Maker" style="border: 8px outset black; border-style: solid">
         <img src="https://cdn2.scratch.mit.edu/get_image/project/1260099784_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid;">
             
-            <p style="color: yellow; width: 200px; font-size: 35px;"><b>Movie Maker</b></p>
+            <p style="color: yellow; width: 200px; font-size: 35px;">Movie Maker Beta</p>
             <p style="color: yellow">By: Myles</p>
             
             <a class="buttonPlay" href="https://scratch.mit.edu/projects/1260099784/fullscreen">Play</a> 
@@ -86,7 +168,7 @@
         
         <div id="My-Rock-Buddy" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid">
             
-            <p style="color: yellow; width: 200px; font-size: 35px;"><b>My Rock Buddy</b></p>
+            <p style="color: yellow; width: 200px; font-size: 35px;">My Rock Buddy</p>
             <p style="color: yellow">By: Myles</p>
             
             <a class="buttonPlay" href="https://scratch.mit.edu/projects/1197474488/fullscreen">Play</a>
@@ -95,7 +177,7 @@
         
         <div id="Santa-Punch" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1256714335_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid;">
             
-        <p style="color: yellow; width: 200px; font-size: 35px;"><b>Santa Punch Simulator</b></p>
+        <p style="color: yellow; width: 200px; font-size: 35px;">Santa Punch Simulator</p>
             <p style="color: yellow">By: Matthew</p>
             
             <a class="buttonPlay" href="https://scratch.mit.edu/projects/1256714335/fullscreen">Play</a>
@@ -104,7 +186,7 @@
             
             <div id="ClackHead" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1014849783_282x210.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid; autoplay: none;">
             
-        <p style="color: yellow; width: 200px; font-size: 35px;"><b>ClackHead (for school)</b></p>
+        <p style="color: yellow; width: 200px; font-size: 35px;">ClackHead (for school)</p>
             <p style="color: yellow">By: Myles</p>
             
        
@@ -112,7 +194,7 @@
             </div>
             
             </div>
-        
+        <button onclick="showScene('exploreGamesScene')" class="buttonFill">Explore All Games</button>
     </div>
 
     <!-- SCENE 2 -->
@@ -126,7 +208,7 @@
     </div>
 
     <!-- SCENE 3 -->
-    <div id="settingsScene" class="scene" style="display: none; background-color: red; border: 5px outset yellow; border-style: solid;">
+    <div id="helpScene" class="scene" style="display: none; background-color: red; border: 5px outset yellow; border-style: solid;">
         <h1 style="color: yellow;">Help?</h1>
         <h3 style="color: yellow">What <i>is</i> BurnUI?</h3>
         
@@ -146,16 +228,77 @@
         
     </div>
       
-    <div id="videosScene" class="scene" style="display: none; background-color: red; border: 5px outset yellow; border-style: solid;">
-        <h1 style="color: yellow;">Videos</h1>
+    <div id="exploreGamesScene" class="scene" style="display: none; background-color: red; border: 5px outset yellow; border-style: solid;">
         
-        <iframe width="350" height="200" src="https://www.youtube.com/embed/0gvoErO9LBY?si=DMPL8dFb8-3UuaVa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h1 style="color: yellow;">Games</h1>
         
-        <iframe width="350" height="200" src="https://www.youtube.com/embed/wiObn1dZEnw?si=17C1XINDQUhKR8Lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div id="flex" style="display: flex;">
+        <div id="Movie-MakerGE" style="border: 8px outset black; border-style: solid">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1260099784_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid;">
+            
+            <p style="color: yellow; width: 200px; font-size: 35px;">Movie Maker Beta</p>
+            <p style="color: yellow">By: Myles</p>
+            
+            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1260099784/fullscreen">Play</a> 
+            
+        </div>
         
+        <div id="My-Rock-BuddyGE" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid">
+            
+            <p style="color: yellow; width: 200px; font-size: 35px;">My Rock Buddy</p>
+            <p style="color: yellow">By: Myles</p>
+            
+            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1197474488/fullscreen">Play</a>
+            
+        </div>
+        
+        <div id="Santa-PunchGE" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1256714335_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid;">
+            
+        <p style="color: yellow; width: 200px; font-size: 35px;">Santa Punch Simulator</p>
+            <p style="color: yellow">By: Matthew</p>
+            
+            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1256714335/fullscreen">Play</a>
+            
+            </div>
+            
+            <div id="ClackHeadGE" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1014849783_282x210.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid; autoplay: none;">
+            
+        <p style="color: yellow; width: 200px; font-size: 35px;">ClackHead (for school)</p>
+            <p style="color: yellow">By: Myles</p>
+            
+       
+            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1014849783/fullscreen/">Play</a>
+            </div>
+            
+            <div id="ClackHeadGE" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/930655286_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid; autoplay: none;">
+            
+        <p style="color: yellow; width: 200px; font-size: 35px;">Cookie Clicker</p>
+            <p style="color: yellow">By: Vino11</p>
+            
+       
+            <a class="buttonPlay" href="https://scratch.mit.edu/projects/930655286/fullscreen/">Play</a>
+            </div>
+            
+        </div>
         
     </div>
       
+      <div id="tutorialScene" class="scene" style="display: block; background-color: red; border: 5px outset yellow; border-style: solid;">
+          
+        <h1 style="color: yellow;">Tutorial</h1>
+        
+          <iframe width="560" height="500"
+    src="https://www.youtube.com/embed/3bH6WvJQnyg?autoplay=1"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width: 100%;">
+</iframe>
+
+          
+    </div>
 
     <script>
         function showScene(sceneId) {
