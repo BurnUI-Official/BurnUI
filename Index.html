@@ -1,305 +1,193 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BurnUI</title>
-      
-      <style>
-          
-          .button {
-              
-              background-color: red;
-              color: yellow;
-              border: 2px outset yellow;
-              border-style: solid;
-              border-radius: 15px;
-              
-              
-          }
-          
-      </style>
-      
-      <style>
-          
-          .buttonFill {
-              
-              background-color: red;
-              color: yellow;
-              border: 2px outset yellow;
-              border-style: solid;
-              border-radius: 15px;
-              font-size: 55px;
-              text-decoration: none;
-              width: 100%;
-              
-          }
-          
-      </style>
-      
-      <style>
-          
-          .title {
-              
-              background-color: red;
-              color: yellow;
-              border: 8px outset yellow;
-              border-style: solid;
-              border-top-left-radius: 15px;
-              border-top-right-radius: 15px;
-              
-          }
-          
-      </style>
-      
-      <style>
-          
-          .buttonPlay {
-              
-              background-color: red;
-              color: yellow;
-              border: 2px outset yellow;
-              border-style: solid;
-              border-radius: 15px;
-              font-size: 55px;
-              text-decoration: none;
-              
-          }
-          
-      </style>
-      
-      <style>
-    /* Bold Mode: everything bold */
-    .bold-mode * {
-        font-weight: bold !important;
-    }
-
-    /* Regular Mode: everything normal EXCEPT headings */
-    .regular-mode * {
-        font-weight: normal !important;
-    }
-
-    /* Keep headings bold ALWAYS */
-    .regular-mode h1,
-    .regular-mode h2,
-    .regular-mode h3,
-    .regular-mode h4,
-    .regular-mode h5,
-    .regular-mode h6 {
-        font-weight: bold !important;
-    }
-</style>
-
-
-
-
-      <script>
-function darkMode() {
-    document.body.style.backgroundColor = "#111";
-    document.getElementById("title").style.backgroundColor = "#222";
-    document.getElementById("Top").style.backgroundColor = "#222";
-    document.getElementById("gap").style.backgroundColor = "#222";
-    document.getElementById("gap").style.borderColor = "#222";
-
-    document.querySelectorAll(".scene").forEach(scene => {
-        scene.style.backgroundColor = "#222";
-    });
-}
-
-function regularMode() {
-    document.body.style.backgroundColor = "orange";
-    document.getElementById("title").style.backgroundColor = "red";
-    document.getElementById("Top").style.backgroundColor = "red";
-    document.getElementById("gap").style.backgroundColor = "red";
-    document.getElementById("gap").style.borderColor = "red";
-
-    document.querySelectorAll(".scene").forEach(scene => {
-        scene.style.backgroundColor = "red";
-    });
-}
-
-</script>
-
-      <script>
-function boldText() {
-    document.body.classList.add("bold-mode");
-    document.body.classList.remove("regular-mode");
-}
-
-function regularText() {
-    document.body.classList.add("regular-mode");
-    document.body.classList.remove("bold-mode");
-}
-</script>
-
-      
+    <title>My HTML Page</title>
   </head>
-  <body style="background-color: orange;">
-      
-      <div id="title" class="title">
+  <body>
+    <style>
+    /* Base button style */
+    .my-button {
+        
+        background-color: red;
+        color: yellow;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-style: solid;
+        margin: 5px;
+        
+    }
 
-          <h1 style="color: yellow;">BurnUI</h1>
-          
-      </div>
-      
-    <div id="Top" style="background-color: red; border: 5px outset yellow; border-style: solid;               border-bottom-left-radius: 15px;
-              border-bottom-right-radius: 15px;">
-        <div id="gap" style="border: 10px outset red; border-style: solid; border-radius: 15px;">
-    <button onclick="showScene('homeScene')" class="button">Home</button>
-    <button onclick="showScene('uploadScene')" class="button">Upload</button>
-    <button onclick="showScene('helpScene')" class="button">Help?</button>
-        </div>
-      </div>
+    .my-button:hover {
+        
+        background-color: maroon;
+        color: red;
+        
+    }
+        .ThemeTop {
+            
+            background-color: firebrick;
+            border: 5px solid yellow;
+            
+        }
+        
+        body {
+            
+            font-family: monospace;
+            
+        }
+        
+        .Card {
+            
+            width: 15%;
+            margin: 10px;
+            border: 12px solid yellow;
+            border-radius: 25px;
+            background-color: red;
+            
+        }
+        
+</style>
+<body style="background: orange;">
+    
+    <div id="Top" class="ThemeTop">
+    <img src="https://i.postimg.cc/85hdxHrr/Burn-UI-Logo-Bitmap.png" style="margin: 5px;">
+    
+    <br>
 
-      <br><br><br>
-      
-    <!-- SCENE 1 -->
-    <div id="homeScene" class="scene" style="display: none; background-color: red; border: 5px outset yellow; border-style: solid;">
-        <h1 style="color: yellow;">Home</h1>
-        
-        <div style="display: flex;">
-        <div id="Movie-Maker" style="border: 8px outset black; border-style: solid">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1260099784_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid;">
-            
-            <p style="color: yellow; width: 200px; font-size: 35px;">Movie Maker Beta</p>
-            <p style="color: yellow">By: Myles</p>
-            
-            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1260099784/fullscreen">Play</a> 
-            
-        </div>
-        
-        <div id="My-Rock-Buddy" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid">
-            
-            <p style="color: yellow; width: 200px; font-size: 35px;">My Rock Buddy</p>
-            <p style="color: yellow">By: Myles</p>
-            
-            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1197474488/fullscreen">Play</a>
-            
-        </div>
-        
-        <div id="Santa-Punch" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1256714335_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid;">
-            
-        <p style="color: yellow; width: 200px; font-size: 35px;">Santa Punch Simulator</p>
-            <p style="color: yellow">By: Matthew</p>
-            
-            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1256714335/fullscreen">Play</a>
-            
-            </div>
-            
-            <div id="ClackHead" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1014849783_282x210.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid; autoplay: none;">
-            
-        <p style="color: yellow; width: 200px; font-size: 35px;">ClackHead (for school)</p>
-            <p style="color: yellow">By: Myles</p>
-            
-       
-            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1014849783/fullscreen/">Play</a>
-            </div>
-            
-            </div>
-        <button onclick="showScene('exploreGamesScene')" class="buttonFill">Explore All Games</button>
+    <button class="my-button" onclick="showScene('homeScene')"><b>Home</b></button> <button class="my-button" onclick="showScene('uploadScene')"><b>Upload</b></button>
     </div>
-
-    <!-- SCENE 2 -->
-    <div id="uploadScene" class="scene" style="display: none; background-color: red; border: 5px outset yellow; border-style: solid;">
-        <h1 style="color: yellow;">Upload</h1>
-        <a style="background-color: red; color: yellow; border: 2px outset yellow; border-style: solid; border-radius: 15px; font-size: 20px; text-decoration: none;" href="https://docs.google.com/forms/d/e/1FAIpQLScZuCQ30-oZxupnXMepD0BIYEZneTzsDIeSPx_h-evp-PgZgQ/viewform?usp=header">Don't have an account to upload to? Sign up!</a>
+    
+    <div id="homeScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
         
-        <br><br>
+        <h1 style="color: yellow; font-size: 32px;">Home</h1>
         
-        <a style="background-color: red; color: yellow; border: 2px outset yellow; border-style: solid; border-radius: 15px; font-size: 20px; text-decoration: none;" href="https://docs.google.com/forms/d/e/1FAIpQLSdJb3sSKJ3u3y1yydXrjBESVV-zUMLIngZtBnLnFZJfyhJIYA/viewform?usp=header">Upload</a>
-    </div>
-
-    <!-- SCENE 3 -->
-    <div id="helpScene" class="scene" style="display: none; background-color: red; border: 5px outset yellow; border-style: solid;">
-        <h1 style="color: yellow;">Help?</h1>
-        <h3 style="color: yellow">What <i>is</i> BurnUI?</h3>
+        <div id="BurnUIOriginals" style="display: flex;">
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1292845098_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">Movie Maker</h3>
+            <p style="color: yellow; font-size: 15px;">Myles</p>
+            <a href="https://scratch.mit.edu/projects/1292845098/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
         
-        <p style="color: yellow;">
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">My Rock Buddy</h3>
+            <p style="color: yellow; font-size: 15px;">Myles</p>
+            <a href="https://scratch.mit.edu/projects/1197474488/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
+        
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1014849783_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">ClackHead</h3>
+            <p style="color: yellow; font-size: 15px;">Myles</p>
+            <a href="https://scratch.mit.edu/projects/1197474488/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
             
-            BurnUI is a game creator / a game player. BurnUI has been in production since 2022 by the name of "Retrostudio" and has been released in early 2026. BurnUI is ran by two people, Myles, and Matthew.
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1308083925_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">The Keko Experience</h3>
+            <p style="color: yellow; font-size: 15px;">Matthew</p>
+            <a href="https://scratch.mit.edu/projects/1308083925/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
             
-        </p>
-        
-        <h3 style="color: yellow">How do I know when to update BurnUI?</h3>
-        
-        <p style="color: yellow;">
-            
-            You can go to the BurnUI YouTube Channel ( @BurnUI-Official ) for all the videos to watch without needing BurnUI or go to the posts and see if your game is outdated.
-            
-        </p>
-        
-    </div>
-      
-    <div id="exploreGamesScene" class="scene" style="display: none; background-color: red; border: 5px outset yellow; border-style: solid;">
-        
-        <h1 style="color: yellow;">Games</h1>
-        
-        <div id="flex" style="display: flex;">
-        <div id="Movie-MakerGE" style="border: 8px outset black; border-style: solid">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1260099784_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid;">
-            
-            <p style="color: yellow; width: 200px; font-size: 35px;">Movie Maker Beta</p>
-            <p style="color: yellow">By: Myles</p>
-            
-            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1260099784/fullscreen">Play</a> 
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1135356622_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">Paliem The Game</h3>
+            <p style="color: yellow; font-size: 15px;">Myles</p>
+            <a href="https://scratch.mit.edu/projects/1135356622/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
             
         </div>
         
-        <div id="My-Rock-BuddyGE" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid">
+        <br>
             
-            <p style="color: yellow; width: 200px; font-size: 35px;">My Rock Buddy</p>
-            <p style="color: yellow">By: Myles</p>
-            
-            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1197474488/fullscreen">Play</a>
-            
-        </div>
-        
-        <div id="Santa-PunchGE" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1256714335_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid;">
-            
-        <p style="color: yellow; width: 200px; font-size: 35px;">Santa Punch Simulator</p>
-            <p style="color: yellow">By: Matthew</p>
-            
-            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1256714335/fullscreen">Play</a>
-            
-            </div>
-            
-            <div id="ClackHeadGE" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/1014849783_282x210.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid; autoplay: none;">
-            
-        <p style="color: yellow; width: 200px; font-size: 35px;">ClackHead (for school)</p>
-            <p style="color: yellow">By: Myles</p>
-            
-       
-            <a class="buttonPlay" href="https://scratch.mit.edu/projects/1014849783/fullscreen/">Play</a>
-            </div>
-            
-            <div id="ClackHeadGE" style="border: 8px outset black; border-style: solid"><img src="https://cdn2.scratch.mit.edu/get_image/project/930655286_144x108.png" width="200" height="160" style="border: 6px outset yellow; border-style: solid; autoplay: none;">
-            
-        <p style="color: yellow; width: 200px; font-size: 35px;">Cookie Clicker</p>
-            <p style="color: yellow">By: Vino11</p>
-            
-       
-            <a class="buttonPlay" href="https://scratch.mit.edu/projects/930655286/fullscreen/">Play</a>
-            </div>
-            
-        </div>
+        <button class="my-button" style="width: 100%; margin: 0 auto;" onclick="showScene('exploreScene')"><b>Explore All Games</b></button>
         
     </div>
-      
-      <div id="tutorialScene" class="scene" style="display: block; background-color: red; border: 5px outset yellow; border-style: solid;">
-          
-        <h1 style="color: yellow;">Tutorial</h1>
+    
+    <div id="exploreScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
         
-          <iframe width="560" height="500"
-    src="https://www.youtube.com/embed/3bH6WvJQnyg?autoplay=1"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen
-    style="width: 100%;">
-</iframe>
-
-          
+        <h1 style="color: yellow; font-size: 32px;">Explore</h1>
+        
+        <div id="ExploreGames" style="display: flex">
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1292845098_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">Movie Maker</h3>
+            <p style="color: yellow; font-size: 15px;">Myles</p>
+            <a href="https://scratch.mit.edu/projects/1292845098/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
+        
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">My Rock Buddy</h3>
+            <p style="color: yellow; font-size: 15px;">Myles</p>
+            <a href="https://scratch.mit.edu/projects/1197474488/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
+        
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1014849783_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">ClackHead</h3>
+            <p style="color: yellow; font-size: 15px;">Myles</p>
+            <a href="https://scratch.mit.edu/projects/1197474488/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
+            
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1308083925_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">The Keko Experience</h3>
+            <p style="color: yellow; font-size: 15px;">Matthew</p>
+            <a href="https://scratch.mit.edu/projects/1308083925/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
+            
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1135356622_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">Paliem The Game</h3>
+            <p style="color: yellow; font-size: 15px;">Myles</p>
+            <a href="https://scratch.mit.edu/projects/1135356622/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
+            
+            
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1256714335_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">Bye Bye Santa...</h3>
+            <p style="color: yellow; font-size: 15px;">Matthew</p>
+            <a href="https://scratch.mit.edu/projects/1256714335/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>    
+        
+        </div>
+        
     </div>
-
+    
+    <div id="uploadScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
+        
+        <h1 style="color: yellow; font-size: 32px;">Upload</h1>
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScZuCQ30-oZxupnXMepD0BIYEZneTzsDIeSPx_h-evp-PgZgQ/viewform?usp=header" target="_blank"><button class="my-button"><b>Sign Up</b></button></a>
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJb3sSKJ3u3y1yydXrjBESVV-zUMLIngZtBnLnFZJfyhJIYA/viewform?usp=header" target="_blank"><button class="my-button"><b>Upload</b></button></a>
+        
+    </div>
+    
+    <div id="tutorialScene" class="scene">
+        
+        <iframe width="560" height="500" src="https://www.youtube.com/embed/eFXxQODZ2co?si=G90H2S2DbTh7Soxd&autoplay=1&cc_load_policy=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; margin: 0 auto;"></iframe>
+        
+    </div>
+    
     <script>
         function showScene(sceneId) {
             // hide all scenes
@@ -311,6 +199,9 @@ function regularText() {
             document.getElementById(sceneId).style.display = 'block';
         }
     </script>
-      
+
+</body>
+
+
   </body>
 </html>
