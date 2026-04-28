@@ -70,7 +70,7 @@
         <img src="https://cdn2.scratch.mit.edu/get_image/project/1292845098_144x108.png" style="width:100%;">
             <h3 style="color: yellow; font-size: 25px;">Movie Maker</h3>
             <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1292845098/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <a href="https://scratch.mit.edu/projects/1312779990/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
             <br>
         </div>
         
@@ -118,12 +118,14 @@
         
         <h1 style="color: yellow; font-size: 32px;">Explore</h1>
         
+        <input type="text" id="cardSearch" placeholder="Movie Maker" style="font-size: 25px">
+        
         <div id="ExploreGames1" style="display: flex">
         <div class="Card">
         <img src="https://cdn2.scratch.mit.edu/get_image/project/1292845098_144x108.png" style="width:100%;">
             <h3 style="color: yellow; font-size: 25px;">Movie Maker</h3>
             <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1292845098/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <a href="https://scratch.mit.edu/projects/1312779990/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
             <br>
         </div>
         
@@ -210,6 +212,26 @@
             document.getElementById(sceneId).style.display = 'block';
         }
     </script>
+    
+    <script>
+    const searchInput = document.getElementById('cardSearch');
+
+    searchInput.addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        const cards = document.querySelectorAll('.Card');
+
+        cards.forEach(card => {
+            const title = card.querySelector('h3');
+            const text = title ? title.textContent.toLowerCase() : '';
+
+            if (text.includes(query)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+</script>
 
 </body>
 
