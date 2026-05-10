@@ -50,6 +50,18 @@
             
         }
         
+        .mail {
+            
+        background-color: red;
+        color: yellow;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 5px;
+        font-size: 52px;
+        border: 5px solid yellow;
+        
+        }
+        
 </style>
 <body style="background: orange;">
     
@@ -58,7 +70,7 @@
     
     <br>
 
-    <button class="my-button" onclick="showScene('homeScene')"><b>Home</b></button> <button class="my-button" onclick="showScene('uploadScene')"><b>Upload</b></button>
+    <button class="my-button" onclick="showScene('homeScene')"><b>Home</b></button> <button class="my-button" onclick="showScene('uploadScene')"><b>Upload</b></button> <button class="my-button" onclick="showScene('mailScene')"><b>Mail</b></button>
     </div>
     
     <div id="homeScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
@@ -122,10 +134,10 @@
         
         <div id="ExploreGames1" style="display: flex">
         <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1292845098_144x108.png" style="width:100%;">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1317712803_144x108.png" style="width:100%;">
             <h3 style="color: yellow; font-size: 25px;">Movie Maker</h3>
             <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1312779990/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <a href="https://scratch.mit.edu/projects/1317712803/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
             <br>
         </div>
         
@@ -181,6 +193,24 @@
             <br>
         </div>
             
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1317712803_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">My Movie Editor</h3>
+            <p style="color: yellow; font-size: 15px;">Myles</p>
+            <a href="https://scratch.mit.edu/projects/1317712803/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
+            
+        <div class="Card">
+        <img src="https://cdn2.scratch.mit.edu/get_image/project/1314656252_144x108.png" style="width:100%;">
+            <h3 style="color: yellow; font-size: 25px;">Disco Man</h3>
+            <p style="color: yellow; font-size: 15px;">Matthew</p>
+            <a href="https://scratch.mit.edu/projects/1314656252/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
+            <br>
+        </div>
+            
+        
+            
         </div>
         
     </div>
@@ -192,6 +222,18 @@
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScZuCQ30-oZxupnXMepD0BIYEZneTzsDIeSPx_h-evp-PgZgQ/viewform?usp=header" target="_blank"><button class="my-button"><b>Sign Up</b></button></a>
         
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJb3sSKJ3u3y1yydXrjBESVV-zUMLIngZtBnLnFZJfyhJIYA/viewform?usp=header" target="_blank"><button class="my-button"><b>Upload</b></button></a>
+        
+    </div>
+    
+    <div id="mailScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
+        
+        <h1 style="color: yellow; font-size: 32px;">Mail</h1>
+        
+        <div id="message">
+            
+            <p class="mail">Hello, this is BurnUI - We are announcing BurnUI Engine! Which is a private ( for now ) HTML coding software! Coming soon...</p>
+            
+        </div>
         
     </div>
     
