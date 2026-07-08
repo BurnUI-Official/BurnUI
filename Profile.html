@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encrypted Login + Profile Picture + Auto Save</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        #profile { display: none; }
+        #pfp { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+        
+        html, body {
+        height: 100%;
+        margin: 0;
+    }
+        
+    .button {
+            
+            background-color: orangered;
+            color: yellow;
+            border: 5px solid yellow;
+            border-radius: 12px;
+            
+        }
+        
+        .button:hover {
+            
+            cursor: pointer;
+            background-color: yellow;
+            color: orangered;
+            border: 5px solid orangered;
+            border-radius: 12px;
+            
+        }
+        
+    </style>
+</head>
+<body style="background-image: linear-gradient(to bottom, orange, red); background-repeat: no-repeat; height: 100%; background-size: cover;">
+    
+    <a href="index.html"><button style="" class="button">back</button></a>
+
+<div id="auth">
+    <input id="username" placeholder="Username"><br><br>
+    <input id="password" type="password" placeholder="Password"><br><br>
+
+    <label>Profile Picture (optional)</label><br>
+    <input id="pfpInput" type="file" accept="image/*"><br><br>
+
+    <button onclick="register()" class="button">Register</button>
+    <button onclick="login()" class="button">Login</button>
+</div>
+
+<div id="profile">
+    <h2>Welcome, <span id="profileName"></span></h2>
+    <img id="pfp" src="" style="border: 5px solid red; background-color: white;"><br><br>
+    <button onclick="logout()" class="button">Logout</button>
+    <a href="Friends.html"><button style="" class="button">See friends</button></a>
+</div>
+
+<script>
+    // Convert password → SHA-256 hash (hex)
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    // Convert uploaded image → Base64 string
+    function getImageBase64(file) {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.readAsDataURL(file);
+        });
+    }
+
+    async function register() {
+        let user = username.value;
+        let pass = password.value;
+
+        if (!user || !pass) return alert("Enter username and password");
+
+        if (localStorage.getItem(user)) {
+            alert("Username already exists");
+            return;
+        }
+
+        const hashed = await hashPassword(pass);
+
+        let pfpFile = pfpInput.files[0];
+        let pfpBase64 = pfpFile ? await getImageBase64(pfpFile) : "";
+
+        const accountData = {
+            password: hashed,
+            pfp: pfpBase64
+        };
+
+        localStorage.setItem(user, JSON.stringify(accountData));
+        localStorage.setItem("loggedInUser", user);
+
+        loadProfile(user);
+        alert("Account created!");
+    }
+
+    async function login() {
+        let user = username.value;
+        let pass = password.value;
+
+        const savedData = localStorage.getItem(user);
+        if (!savedData) return alert("Invalid username or password");
+
+        const account = JSON.parse(savedData);
+        const savedHash = account.password;
+
+        const enteredHash = await hashPassword(pass);
+
+        if (enteredHash === savedHash) {
+            localStorage.setItem("loggedInUser", user);
+            loadProfile(user);
+        } else {
+            alert("Invalid username or password");
+        }
+    }
+
+    function loadProfile(user) {
+        const account = JSON.parse(localStorage.getItem(user));
+
+        auth.style.display = "none";
+        profile.style.display = "block";
+        profileName.textContent = user;
+
+        pfp.src = account.pfp || "";
+    }
+
+    function logout() {
+        localStorage.removeItem("loggedInUser");
+        auth.style.display = "block";
+        profile.style.display = "none";
+        username.value = "";
+        password.value = "";
+        pfp.src = "";
+    }
+
+    // AUTO LOGIN WHEN PAGE LOADS
+    window.onload = () => {
+        const user = localStorage.getItem("loggedInUser");
+        if (user && localStorage.getItem(user)) {
+            loadProfile(user);
+        }
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Friends</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .userCard {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        #pfp {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        html, body {
+        height: 100%;
+        margin: 0;
+    }
+        
+        .button {
+            
+            background-color: orangered;
+            color: yellow;
+            border: 5px solid yellow;
+            border-radius: 12px;
+            
+        }
+        
+        .button:hover {
+            
+            cursor: pointer;
+            background-color: yellow;
+            color: orangered;
+            border: 5px solid orangered;
+            border-radius: 12px;
+            
+        }
+        
+    </style>
+</head>
+<body style="background-image: linear-gradient(to bottom, orange, red); background-repeat: no-repeat; height: 100%; background-size: cover;">
+    
+    <a href="Profile.html"><button style="" class="button">back</button></a>
+
+<h2>Search People</h2>
+
+<input id="searchBar" placeholder="Search usernames..." oninput="searchUsers()" style="width: 300px; padding: 10px;"><br><br>
+
+<div id="results"></div>
+
+<h2>Your Friends</h2>
+<div id="friendsList"></div>
+
+<script>
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (!loggedInUser) {
+        alert("You must be logged in!");
+        window.location.href = "index.html";
+    }
+
+    function getAllUsers() {
+    let users = [];
+
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+
+        // Skip non-user keys
+        if (key === "loggedInUser") continue;
+        if (key.startsWith("friends_")) continue;
+
+        let value = localStorage.getItem(key);
+
+        // Check if value is valid JSON
+        try {
+            let parsed = JSON.parse(value);
+
+            // Check if it looks like an account
+            if (parsed && typeof parsed === "object" && "password" in parsed) {
+                users.push(key);
+            }
+        } catch (e) {
+            // Not JSON → skip it
+            continue;
+        }
+    }
+
+    return users;
+}
+
+    function searchUsers() {
+        const query = searchBar.value.toLowerCase();
+        const users = getAllUsers();
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = "";
+
+        users.forEach(user => {
+            if (user.toLowerCase().includes(query) && user !== loggedInUser) {
+                let raw = localStorage.getItem(user);
+let data;
+
+try {
+    data = JSON.parse(raw);
+} catch {
+    return; // skip invalid entries
+}
+
+                const card = document.createElement("div");
+                card.className = "userCard";
+
+                card.innerHTML = `
+                    <img id="pfp" src="${data.pfp || ""}">
+                    <strong>${user}</strong><br>
+                    <button onclick="addFriend('${user}')">Add Friend</button>
+                `;
+
+                resultsDiv.appendChild(card);
+            }
+        });
+    }
+
+    function addFriend(friendName) {
+        let friends = JSON.parse(localStorage.getItem("friends_" + loggedInUser)) || [];
+
+        if (!friends.includes(friendName)) {
+            friends.push(friendName);
+            localStorage.setItem("friends_" + loggedInUser, JSON.stringify(friends));
+            loadFriends();
+            alert(friendName + " added as a friend!");
+        } else {
+            alert("Already added!");
+        }
+    }
+
+    function loadFriends() {
+        const list = document.getElementById("friendsList");
+        list.innerHTML = "";
+
+        let friends = JSON.parse(localStorage.getItem("friends_" + loggedInUser)) || [];
+
+        friends.forEach(friend => {
+            const data = JSON.parse(localStorage.getItem(friend));
+
+            const card = document.createElement("div");
+card.className = "userCard";
+
+card.innerHTML = `
+    <img id="pfp" src="${data.pfp || ""}">
+    <strong>${friend}</strong><br>
+    <button onclick="removeFriend('${friend}')">Unfriend</button>
+`;
+
+            card.innerHTML = `
+                <img id="pfp" src="${data.pfp || ""}">
+                <strong>${friend}</strong>
+            `;
+
+            list.appendChild(card);
+        });
+    }
+
+    loadFriends();
+    
+    function removeFriend(friendName) {
+    let friends = JSON.parse(localStorage.getItem("friends_" + loggedInUser)) || [];
+
+    // Remove friend
+    friends = friends.filter(f => f !== friendName);
+
+    // Save updated list
+    localStorage.setItem("friends_" + loggedInUser, JSON.stringify(friends));
+
+    // Reload UI
+    loadFriends();
+
+    alert(friendName + " has been removed from your friends list.");
+}
+
+    
+</script>
+
+</body>
+</html>
