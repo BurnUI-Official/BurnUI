@@ -1,318 +1,169 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+    
     <title>BurnUI</title>
-  </head>
-  <body>
+    
     <style>
-    /* Base button style */
-    .my-button {
-        
-        background-color: red;
-        color: yellow;
-        padding: 12px 24px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        border-style: solid;
-        margin: 5px;
-        
-    }
-
-    .my-button:hover {
-        
-        background-color: maroon;
-        color: red;
-        
-    }
-        .ThemeTop {
-            
-            background-color: firebrick;
-            border: 5px solid yellow;
-            
+        html, body {
+            height: 100%;
+            margin: 0;
         }
         
-        body {
-            
-            font-family: monospace;
-            
-        }
-        
-        .Card {
-            
-            width: 15%;
-            margin: 10px;
-            border: 12px solid yellow;
-            border-radius: 25px;
+        .top {
             background-color: red;
-            
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            border: 5px solid yellow;
+            align-items: center;
+            display: flex;
+            margin: 35px;
         }
         
-        .mail {
-            
-        background-color: red;
-        color: yellow;
-        padding: 12px 24px;
-        border: none;
-        border-radius: 5px;
-        font-size: 52px;
-        border: 5px solid yellow;
-        
+        .button {
+            background-color: orangered;
+            color: yellow;
+            border: 5px solid yellow;
+            border-radius: 12px;
         }
         
-        .oldmail {
-            
-        background-color: gray;
-        color: black;
-        padding: 12px 24px;
-        border: none;
-        border-radius: 5px;
-        font-size: 52px;
-        border: 5px solid black;
-        
+        .button:hover {
+            cursor: pointer;
+            background-color: yellow;
+            color: orangered;
+            border: 5px solid orangered;
+            border-radius: 12px;
         }
-        
-</style>
-<body style="background: orange;">
-    
-    <div id="Top" class="ThemeTop">
-    <img src="https://i.postimg.cc/85hdxHrr/Burn-UI-Logo-Bitmap.png" style="margin: 5px;">
-    
-    <br>
 
-    <button class="my-button" onclick="showScene('homeScene')"><b>Home</b></button> <button class="my-button" onclick="showScene('uploadScene')"><b>Upload</b></button> <button class="my-button" onclick="showScene('mailScene')"><b>Mail</b></button> <button class="my-button" onclick="showScene('htmlScene')"><b>HTML</b></button>
+        .game-btn {
+            background-color: orangered;
+            color: yellow;
+            border: 4px solid yellow;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 250px;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+        }
+
+        .game-btn:hover {
+            background-color: yellow;
+            color: orangered;
+            border-color: orangered;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            background: white;
+            border: 4px solid yellow;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
     
+</head>
+<body style="background-image: linear-gradient(to bottom, orange, red); background-repeat: no-repeat; height: 100%; background-size: cover;">
+    
+    <div class="top">
+        <h1 style="font-size: 50px; font-family: Arial, Helvetica, sans-serif;">BurnUI</h1>
+        <p style="color: red" id="DIVIDER">====</p>
+        <a href="Profile.html"><button style="height: 50px;" class="button">Profile</button></a>
     </div>
-    
-    <div id="homeScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
-        
-        <h1 style="color: yellow; font-size: 32px;">Home</h1>
-        
-        <div id="BurnUIOriginals" style="display: flex;">
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1292845098_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">Movie Maker</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1317712803/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-        
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">My Rock Buddy</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1197474488/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-        
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1014849783_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">ClackHead</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1014849783/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1310626492_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">The Keko...</h3>
-            <p style="color: yellow; font-size: 15px;">Matthew</p>
-            <a href="https://scratch.mit.edu/projects/1308083925/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1135356622_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">Paliem Th...</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1135356622/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        </div>
-        
-        <br>
-            
-        <button class="my-button" style="width: 100%; margin: 0 auto;" onclick="showScene('exploreScene')"><b>Explore All Games</b></button>
-        
+
+    <div style="padding: 20px;">
+        <h2 style="color: yellow;">Publish a Game</h2>
+        <input id="urlInput" placeholder="Paste game URL here" style="width: 80%; padding: 10px; border-radius: 10px; border: 3px solid yellow;">
+        <button class="button" style="padding: 10px;" onclick="publishGame()">Publish</button>
+
+        <h2 style="color: yellow; margin-top: 40px;">Published Games</h2>
+        <div id="publishedList"></div>
+
+        <iframe id="preview"></iframe>
     </div>
-    
-    <div id="exploreScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
-        
-        <h1 style="color: yellow; font-size: 32px;">Explore</h1>
-        
-        <input type="text" id="cardSearch" placeholder="Movie Maker" style="font-size: 25px">
-        
-        <div id="ExploreGames1" style="display: flex">
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1317712803_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">Movie Maker</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1317712803/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-        
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">My Rock Buddy</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1197474488/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-        
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1014849783_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">ClackHead</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1014849783/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1310626492_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">The Keko...</h3>
-            <p style="color: yellow; font-size: 15px;">Matthew</p>
-            <a href="https://scratch.mit.edu/projects/1310626492/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1135356622_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">Paliem Th...</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1135356622/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>   
-        
-        </div>
-        
-        <div id="ExploreGames2" style="display: flex">
-    
-            <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1311205057_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">Keep Watch...</h3>
-            <p style="color: yellow; font-size: 15px;">Matthew</p>
-            <a href="https://scratch.mit.edu/projects/1311205057/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1312324340_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">Ball Bounce</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1312324340/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1205139522_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">My Movie Editor</h3>
-            <p style="color: yellow; font-size: 15px;">Myles</p>
-            <a href="https://scratch.mit.edu/projects/1205139522/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1314656252_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">Disco Man</h3>
-            <p style="color: yellow; font-size: 15px;">Matthew</p>
-            <a href="https://scratch.mit.edu/projects/1314656252/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        <div class="Card">
-        <img src="https://cdn2.scratch.mit.edu/get_image/project/1314729522_144x108.png" style="width:100%;">
-            <h3 style="color: yellow; font-size: 25px;">Your Mom</h3>
-            <p style="color: yellow; font-size: 15px;">Matthew</p>
-            <a href="https://scratch.mit.edu/projects/1314729522/fullscreen/" target="_blank"><button class="my-button" style="width: 100%; margin: 0 auto;"><b>Play</b></button></a>
-            <br>
-        </div>
-            
-        </div>
-        
-    </div>
-    
-    <div id="uploadScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
-        
-        <h1 style="color: yellow; font-size: 32px;">Upload</h1>
-        
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScZuCQ30-oZxupnXMepD0BIYEZneTzsDIeSPx_h-evp-PgZgQ/viewform?usp=header" target="_blank"><button class="my-button"><b>Sign Up</b></button></a>
-        
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJb3sSKJ3u3y1yydXrjBESVV-zUMLIngZtBnLnFZJfyhJIYA/viewform?usp=header" target="_blank"><button class="my-button"><b>Upload</b></button></a>
-        
-    </div>
-    
-    <div id="mailScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
-        
-        <h1 style="color: yellow; font-size: 32px;">Mail</h1>
-        
-        <div id="message">
-            
-            <p class="mail">Hello, this is BurnUI - We have scrapped the idea of BurnUI Engine. We decided not having a way to publish an HTML project is not the best idea for some people</p>
-            
-        </div>
-        
-        <div id="message">
-            
-            <p class="oldmail">Hello, this is BurnUI - We are announcing BurnUI Engine! Which is a private ( for now ) HTML coding software! Coming soon...</p>
-            
-        </div>
-        
-    </div>
-    
-    <div id="tutorialScene" class="scene">
-        
-        <iframe width="560" height="500" src="https://www.youtube.com/embed/eFXxQODZ2co?si=G90H2S2DbTh7Soxd&autoplay=1&cc_load_policy=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="width: 100%; margin: 0 auto;"></iframe>
-        
-    </div>
-    
-    
-    <div id="htmlScene" style="display: none; background-color: firebrick; border: 4px solid yellow;" class="scene">
-        
-        <h1 style="color: yellow; font-size: 32px;">HTML</h1>
-        
-        <div style="display: flex;">
-         <img src="https://i.postimg.cc/52K1X1j6/No-Results.png" width="90"> <h1 style="color: yellow; font-size: 32px;">No Games</h1>
-        </div>
-        
-    </div>
-    
+
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+
     <script>
-        function showScene(sceneId) {
-            // hide all scenes
-            document.querySelectorAll('.scene').forEach(scene => {
-                scene.style.display = 'none';
-            });
 
-            // show the selected scene
-            document.getElementById(sceneId).style.display = 'block';
-        }
-    </script>
-    
-    <script>
-    const searchInput = document.getElementById('cardSearch');
+	// -----------------------------
+// Firebase Setup
+// -----------------------------
+const firebaseConfig = {
+    apiKey: "YOUR_KEY",
+    authDomain: "YOUR_DOMAIN",
+    databaseURL: "YOUR_DB_URL",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_BUCKET",
+    messagingSenderId: "YOUR_SENDER",
+    appId: "YOUR_APP_ID"
+};
 
-    searchInput.addEventListener('input', function () {
-        const query = this.value.toLowerCase();
-        const cards = document.querySelectorAll('.Card');
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
 
-        cards.forEach(card => {
-            const title = card.querySelector('h3');
-            const text = title ? title.textContent.toLowerCase() : '';
+        function publishGame() {
+    let url = urlInput.value.trim();
 
-            if (text.includes(query)) {
-                card.style.display = '';
-            } else {
-                card.style.display = 'none';
-            }
-        });
+    if (!url.includes("?game=")) {
+        alert("Invalid URL");
+        return;
+    }
+
+    let encoded = url.split("?game=")[1];
+
+    let id = "game_" + Date.now();
+
+    // Save to Firebase instead of localStorage
+    db.ref("publishedGames/" + id).set({
+        code: encoded,
+        timestamp: Date.now()
     });
-</script>
+
+    alert("Game published online!");
+}
+
+        function loadPublishedGames() {
+    let list = document.getElementById("publishedList");
+    list.innerHTML = "";
+
+    db.ref("publishedGames").on("value", snapshot => {
+        list.innerHTML = "";
+
+        let games = snapshot.val();
+        if (!games) return;
+
+        for (let id in games) {
+            let btn = document.createElement("button");
+            btn.className = "game-btn";
+            btn.textContent = "Game " + id.replace("game_", "");
+            btn.onclick = () => loadGame(id);
+            list.appendChild(btn);
+        }
+    });
+}
+
+
+        function loadGame(id) {
+    db.ref("publishedGames/" + id).once("value", snapshot => {
+        let encoded = snapshot.val().code;
+        let code = atob(encoded);
+
+        let doc = preview.contentDocument;
+        doc.open();
+        doc.write(code);
+        doc.close();
+
+        preview.style.display = "block";
+    });
+}
+
+        loadPublishedGames();
+    </script>
 
 </body>
-
-
-  </body>
 </html>
