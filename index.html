@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <title>BurnUI</title>
+    <title>BurnUI - Profile</title>
     
     <link rel="icon" href="BurnUI.png" type="image/png">
     <link rel="shortcut icon" href="BurnUI.png" type="image/png">
@@ -12,30 +11,22 @@
     <link rel="apple-touch-icon" sizes="120x120" href="BurnUI.png">
     
     <style>
-        
+        body { font-family: Arial; padding: 20px; }
+        #profile { display: none; }
+        #pfp { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+
         html, body {
             height: 100%;
             margin: 0;
         }
-        
-        .top {
-            background-color: red;
-            border-bottom-right-radius: 50px;
-            border-top-right-radius: 50px;
-            border: 5px solid yellow;
-            align-items: center;
-            display: flex;
-            margin: 35px;
-        }
-        
+
         .button {
             background-color: orangered;
             color: yellow;
             border: 5px solid yellow;
             border-radius: 12px;
-            transition: transform 0.8s ease-in-out;
         }
-        
+
         .button:hover {
             cursor: pointer;
             background-color: yellow;
@@ -43,142 +34,165 @@
             border: 5px solid orangered;
             border-radius: 12px;
         }
-        
-        .game {
-            margin: 35px;
-            background-color: red;
-            width: 400px;
-            display: grid;
-            place-items: center;
-            border: 5px solid yellow;
-            height: 400px;
-            border-radius: 52px;
-        }
-        
-        .gameTitle {
-            color: yellow;
-        }
-        
-        .games {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        
-        .mF {
-            color: greenyellow;
-            font-size: 10px;
-        }
-        
     </style>
-    
 </head>
-<body style="background-image: linear-gradient(to bottom, orange, red); background-repeat: no-repeat; height: 100%; background-size: cover; background-attachment: fixed; background-color: black;">
+<body style="background-image: linear-gradient(to bottom, orange, red); background-repeat: no-repeat; height: 100%; background-size: cover; background-color: black;">
     
-    <div class="top">
-        <h1 style="font-size: 50px; font-family: Arial, Helvetica, sans-serif;">BurnUI</h1>
-        <p style="color: red" id="DIVIDER">====</p>
-        <a href="Profile.html"><button style="height: 50px;" class="button">Profile</button></a>
-    </div>
+<a href="index.html"><button class="button">back</button></a>
 
-    <!-- SEARCH BAR -->
-    <div style="width: 100%; text-align: center; margin-top: 20px;">
-        <input id="searchBar"
-               type="text"
-               placeholder="Search games..."
-               oninput="searchGames()"
-               style="width: 60%; padding: 15px; font-size: 20px; border-radius: 12px; border: 4px solid yellow;">
-    </div>
-    
-    <div class="games">
-        
-        <div class="game" id="movieMaker">
-            <img src="https://cdn2.scratch.mit.edu/get_image/project/1326918795_144x108.png" width="300" style="border-radius: 40px; border: 2px solid yellow;">
-            <h2 class="gameTitle">Movie Maker Beta (0.5)</h2>
-            <p class="gameTitle">Cost: 3 BurnBux</p>
-            <button class="button" style="width: 300px;" onclick="playMovieMaker()">Play</button>
-        </div>
-        
-        <div class="game" id="etup">
-            <img src="https://cdn2.scratch.mit.edu/get_image/project/1319222966_144x108.png" width="300" style="border-radius: 40px; border: 2px solid yellow;">
-            <h2 class="gameTitle">ETUP</h2>
-            <p class="gameTitle">By: BurnUI</p>
-            <a href="https://scratch.mit.edu/projects/1319222966/fullscreen/" target="_blank" rel="noopener noreferrer">
-                <button class="button" style="width: 300px;">Play</button>
-            </a>
-        </div>
-        
-        <div class="game" id="ballBounce">
-            <img src="https://cdn2.scratch.mit.edu/get_image/project/1312324340_144x108.png" width="300" style="border-radius: 40px; border: 2px solid yellow;">
-            <h2 class="gameTitle">Ball Bounce</h2>
-            <p class="gameTitle">By: BurnUI</p>
-            <p class="mF">mobile friendly</p>
-            <a href="https://scratch.mit.edu/projects/1312324340/fullscreen/" target="_blank" rel="noopener noreferrer">
-                <button class="button" style="width: 300px;">Play</button>
-            </a>
-        </div>
-        
-        <div class="game" id="scratchCat">
-            <img src="https://cdn2.scratch.mit.edu/get_image/project/1321858910_144x108.png" width="300" style="border-radius: 40px; border: 2px solid yellow;">
-            <h2 class="gameTitle">Scratch Cat In Every...</h2>
-            <p class="gameTitle">By: BurnUI</p>
-            <p class="mF">mobile friendly</p>
-            <a href="https://scratch.mit.edu/projects/1321858910/fullscreen/" target="_blank" rel="noopener noreferrer">
-                <button class="button" style="width: 300px;">Play</button>
-            </a>
-        </div>
-        
-        <div class="game" id="rockBuddy">
-            <img src="https://cdn2.scratch.mit.edu/get_image/project/1197474488_144x108.png" width="300" style="border-radius: 40px; border: 2px solid yellow;">
-            <h2 class="gameTitle">My Rock Buddy</h2>
-            <p class="gameTitle">By: BurnUI</p>
-            <p class="mF">mobile friendly</p>
-            <a href="https://scratch.mit.edu/projects/1197474488/fullscreen/" target="_blank" rel="noopener noreferrer">
-                <button class="button" style="width: 300px;">Play</button>
-            </a>
-        </div>
-        
-    </div>
+<div id="auth">
+    <input id="username" placeholder="Username"><br><br>
+    <input id="password" type="password" placeholder="Password"><br><br>
+
+    <label>Profile Picture (optional)</label><br>
+    <input id="pfpInput" type="file" accept="image/*"><br><br>
+
+    <button onclick="register()" class="button">Register</button>
+    <button onclick="login()" class="button">Login</button>
+</div>
+
+<div id="profile">
+    <h2>Welcome, <span id="profileName"></span></h2>
+    <img id="pfp" src="" style="border: 5px solid red; background-color: white;"><br><br>
+
+    <h3>BurnBux: <span id="burnbuxDisplay">0</span></h3>
+
+    <button onclick="logout()" class="button">Logout</button>
+</div>
 
 <script>
-function searchGames() {
-    const query = document.getElementById("searchBar").value.toLowerCase();
+    // Convert password → SHA-256 hash (hex)
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+    }
 
-    const games = [
-        { id: "movieMaker", name: "movie maker beta burnui 0.5" },
-        { id: "etup", name: "etup burnui" },
-        { id: "ballBounce", name: "ball bounce burnui mobile" },
-        { id: "scratchCat", name: "scratch cat in every burnui mobile" },
-        { id: "rockBuddy", name: "my rock buddy burnui mobile" }
-    ];
+    // Convert uploaded image → Base64 string
+    function getImageBase64(file) {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.readAsDataURL(file);
+        });
+    }
 
-    games.forEach(game => {
-        const element = document.getElementById(game.id);
-        if (game.name.includes(query)) {
-            element.style.display = "grid";
-        } else {
-            element.style.display = "none";
+    async function register() {
+        let user = username.value;
+        let pass = password.value;
+
+        if (!user || !pass) return alert("Enter username and password");
+
+        if (localStorage.getItem(user)) {
+            alert("Username already exists");
+            return;
         }
-    });
-}
 
-// MOVIE MAKER COST SYSTEM
-function playMovieMaker() {
-    const user = localStorage.getItem("loggedInUser");
-    if (!user) {
-        alert("You must log in to spend BurnBux.");
-        return;
+        const hashed = await hashPassword(pass);
+
+        let pfpFile = pfpInput.files[0];
+        let pfpBase64 = pfpFile ? await getImageBase64(pfpFile) : "";
+
+        const accountData = {
+            password: hashed,
+            pfp: pfpBase64,
+            burnbux: 0,
+            lastOnline: Date.now() // NEW FIELD
+        };
+
+        localStorage.setItem(user, JSON.stringify(accountData));
+        localStorage.setItem("loggedInUser", user);
+
+        loadProfile(user);
+        alert("Account created!");
     }
 
-    const account = JSON.parse(localStorage.getItem(user));
+    async function login() {
+        let user = username.value;
+        let pass = password.value;
 
-    if (account.burnbux >= 3) {
-        account.burnbux -= 3;
+        const savedData = localStorage.getItem(user);
+        if (!savedData) return alert("Invalid username or password");
+
+        const account = JSON.parse(savedData);
+        const savedHash = account.password;
+
+        const enteredHash = await hashPassword(pass);
+
+        if (enteredHash === savedHash) {
+            localStorage.setItem("loggedInUser", user);
+            loadProfile(user);
+        } else {
+            alert("Invalid username or password");
+        }
+    }
+
+    let burnbuxInterval = null;
+
+    function loadProfile(user) {
+        let account = JSON.parse(localStorage.getItem(user));
+
+        // --- OFFLINE BURNBUX CALCULATION ---
+        const lastOnline = account.lastOnline || Date.now();
+        const now = Date.now();
+
+        const daysPassed = Math.floor((now - lastOnline) / (1000 * 60 * 60 * 24));
+
+if (daysPassed > 0) {
+    account.burnbux += daysPassed;
+}
+
+        account.lastOnline = now;
         localStorage.setItem(user, JSON.stringify(account));
-        window.open("https://scratch.mit.edu/projects/1326918795/fullscreen/", "_blank");
-    } else {
-        alert("You need 3 BurnBux to play Movie Maker!");
+
+        // --- UI UPDATE ---
+        auth.style.display = "none";
+        profile.style.display = "block";
+        profileName.textContent = user;
+
+        pfp.src = account.pfp || "";
+        burnbuxDisplay.textContent = account.burnbux;
+
+        // Earn BurnBux every minute while online
+        if (burnbuxInterval) clearInterval(burnbuxInterval);
+
+        burnbuxInterval = setInterval(() => {
+            const acc = JSON.parse(localStorage.getItem(user));
+            acc.burnbux += 1;
+            acc.lastOnline = Date.now();
+            localStorage.setItem(user, JSON.stringify(acc));
+            burnbuxDisplay.textContent = acc.burnbux;
+        }, 60000);
     }
-}
+
+    function logout() {
+        const user = localStorage.getItem("loggedInUser");
+
+        if (user) {
+            const acc = JSON.parse(localStorage.getItem(user));
+            acc.lastOnline = Date.now();
+            localStorage.setItem(user, JSON.stringify(acc));
+        }
+
+        localStorage.removeItem("loggedInUser");
+        auth.style.display = "block";
+        profile.style.display = "none";
+        username.value = "";
+        password.value = "";
+        pfp.src = "";
+
+        if (burnbuxInterval) clearInterval(burnbuxInterval);
+    }
+
+    // AUTO LOGIN WHEN PAGE LOADS
+    window.onload = () => {
+        const user = localStorage.getItem("loggedInUser");
+        if (user && localStorage.getItem(user)) {
+            loadProfile(user);
+        }
+    };
 </script>
 
 </body>
