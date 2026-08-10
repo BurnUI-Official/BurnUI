@@ -14,36 +14,31 @@
         body { font-family: Arial; padding: 20px; }
         #profile { display: none; }
         #pfp { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
-        
+
         html, body {
-        height: 100%;
-        margin: 0;
-    }
-        
-    .button {
-            
+            height: 100%;
+            margin: 0;
+        }
+
+        .button {
             background-color: orangered;
             color: yellow;
             border: 5px solid yellow;
             border-radius: 12px;
-            
         }
-        
+
         .button:hover {
-            
             cursor: pointer;
             background-color: yellow;
             color: orangered;
             border: 5px solid orangered;
             border-radius: 12px;
-            
         }
-        
     </style>
 </head>
-<body style="background-image: linear-gradient(to bottom, orange, red); background-repeat: no-repeat; height: 100%; background-size: cover;">
+<body style="background-image: linear-gradient(to bottom, orange, red); background-repeat: no-repeat; height: 100%; background-size: cover; background-color: black;">
     
-    <a href="index.html"><button style="" class="button">back</button></a>
+<a href="index.html"><button class="button">back</button></a>
 
 <div id="auth">
     <input id="username" placeholder="Username"><br><br>
@@ -59,6 +54,9 @@
 <div id="profile">
     <h2>Welcome, <span id="profileName"></span></h2>
     <img id="pfp" src="" style="border: 5px solid red; background-color: white;"><br><br>
+
+    <h3>BurnBux: <span id="burnbuxDisplay">0</span></h3>
+
     <button onclick="logout()" class="button">Logout</button>
 </div>
 
@@ -99,7 +97,8 @@
 
         const accountData = {
             password: hashed,
-            pfp: pfpBase64
+            pfp: pfpBase64,
+            burnbux: 0 // NEW FIELD
         };
 
         localStorage.setItem(user, JSON.stringify(accountData));
@@ -129,15 +128,33 @@
         }
     }
 
+    let burnbuxInterval = null;
+
     function loadProfile(user) {
-        const account = JSON.parse(localStorage.getItem(user));
+    const account = JSON.parse(localStorage.getItem(user));
 
-        auth.style.display = "none";
-        profile.style.display = "block";
-        profileName.textContent = user;
-
-        pfp.src = account.pfp || "";
+    // Ensure BurnBux starts at 0
+    if (account.burnbux === undefined) {
+        account.burnbux = 0;
+        localStorage.setItem(user, JSON.stringify(account));
     }
+
+    auth.style.display = "none";
+    profile.style.display = "block";
+    profileName.textContent = user;
+
+    pfp.src = account.pfp || "";
+    burnbuxDisplay.textContent = account.burnbux;
+
+    if (burnbuxInterval) clearInterval(burnbuxInterval);
+
+    burnbuxInterval = setInterval(() => {
+        const acc = JSON.parse(localStorage.getItem(user));
+        acc.burnbux += 1;
+        localStorage.setItem(user, JSON.stringify(acc));
+        burnbuxDisplay.textContent = acc.burnbux;
+    }, 60000);
+}
 
     function logout() {
         localStorage.removeItem("loggedInUser");
@@ -146,6 +163,8 @@
         username.value = "";
         password.value = "";
         pfp.src = "";
+
+        if (burnbuxInterval) clearInterval(burnbuxInterval);
     }
 
     // AUTO LOGIN WHEN PAGE LOADS
