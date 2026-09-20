@@ -76,9 +76,15 @@
     
     
     
-    <audio autoplay loop>
-        <source src="BurnUI-Home.wav" type="audio/wav">
+    <audio id="BurnUIAudio" autoplay loop muted>
+    <source src="BurnUI-Home.wav" type="audio/wav">
     </audio>
+
+    <script>
+        window.addEventListener("click", () => {
+            BurnUIAudio.muted = false;
+        });
+    </script>
     
     <div class="top">
         
