@@ -76,15 +76,17 @@
     
     
     
-    <audio autoplay loop>
+    <audio id="BurnUIAudio" autoplay loop>
 <source src="BurnUI-Home.wav" type="audio/wav">
 </audio>
-
-    <script>
-        window.addEventListener("click", () => {
-            BurnUIAudio.muted = false;
-        });
-    </script>
+ 
+<script>
+window.onload = () => {
+BurnUIAudio.play().catch(err => {
+console.log("Autoplay blocked");
+});
+};
+</script>
     
     <div class="top">
         
